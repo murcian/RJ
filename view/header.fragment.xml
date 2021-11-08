@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<OverflowToolbar class="customHeaderBar" id="headerProfileBar">
+		<Image id="avatarlog" class="imageAvatar sapThemeBrand-asColor" src="{userSessions>photo}"/>
+		<Button class="sapThemeBrand-asColor" id="backArrow" icon="sap-icon://slim-arrow-left" press="onPressBack" type="Transparent"
+			tooltip="{i18n>ttBack}">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"/>
+			</layoutData>
+		</Button>
+		<Button class="sapThemeBrand-asColor" id="home" icon="sap-icon://home" type="Transparent" press="gotoSFSF">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Disappear"/>
+			</layoutData>
+		</Button>
+		<!--<Image class="imageCorporative" src="images/sapCompanyLogo.png"/>-->
+		<Image id="companyLogo" class="imageCorporative" src="/images/logo.png"/>
+		<!--<Image src="{userSessions>logo}"/>-->
+		<ToolbarSpacer/>
+		<Label class="sapUiVisibleOnlyOnDesktop sapThemeText sapThemeBrand-asColor"
+			text="{i18n>appTitle} -">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"/>
+			</layoutData>
+		</Label>
+		<Label class="sapThemeText sapThemeBrand-asColor" id="employeeInfo" text="">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow"/>
+			</layoutData>
+		</Label>
+		<!--<Button class="sapThemeBrand-asColor" id="downArrow" icon="sap-icon://slim-arrow-down" type="Transparent">-->
+		<!--	<layoutData>-->
+		<!--		<OverflowToolbarLayoutData priority="NeverOverflow"/>-->
+		<!--	</layoutData>-->
+		<!--</Button>-->
+		<ToolbarSpacer/>
+		<!--<OverflowToolbarButton class="sapThemeBrand-asColor" id="search" icon="sap-icon://search" text="{i18n>actSearch}" type="Transparent">-->
+		<!--	<layoutData>-->
+		<!--		<OverflowToolbarLayoutData priority="High"/>-->
+		<!--	</layoutData>-->
+		<!--</OverflowToolbarButton>-->
+		<!--<OverflowToolbarButton class="sapThemeBrand-asColor" id="notifications" icon="sap-icon://bell" text="{i18n>actNotifications}" type="Transparent">-->
+		<!--	<layoutData>-->
+		<!--		<OverflowToolbarLayoutData priority="High"/>-->
+		<!--	</layoutData>-->
+		<!--</OverflowToolbarButton>-->
+		<!--<OverflowToolbarButton class="sapThemeBrand-asColor" id="settings" icon="sap-icon://action-settings" text="{i18n>actSettings}" type="Transparent">-->
+		<!--	<layoutData>-->
+		<!--		<OverflowToolbarLayoutData priority="Low"/>-->
+		<!--	</layoutData>-->
+		<!--</OverflowToolbarButton>-->
+		<OverflowToolbarButton class="sapThemeBrand-asColor" id="power-off" icon="sap-icon://log" text="{i18n>actExit}" type="Transparent"
+			press="gotoSFSF" tooltip="{i18n>ttExit}">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Low"/>
+			</layoutData>
+		</OverflowToolbarButton>
+	</OverflowToolbar>
+</core:FragmentDefinition>

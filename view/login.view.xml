@@ -1,0 +1,25 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="epicfichajes.epicfichajes.controller.login"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="standardPage loginPage" showHeader="false">
+		<content>
+			<VBox class="loginBox">
+				<Image id="epicLogo" class="epicLogo" src="images/telefonica_inverted.png"/>
+				<Label text="{i18n>enterData}" class="subtitleLogin"/>
+				<HBox visible="false">
+					<Image src="images/Usuario.png" densityAware="false" class="ussLogin"/>
+					<Input id="inputUser" type="Email" class="loginInput" placeholder="{i18n>usuario}"/>
+				</HBox>
+				<HBox visible="false">
+					<Link text="{i18n>showPass}" class="showPassText" press="showPassword"/>
+					<Image src="images/mostrar.png" id="showPass" densityAware="false" class="showPass" press="showPassword"/>
+				</HBox>
+				<HBox visible="false">
+					<Image src="images/contrasena.png" densityAware="false" class="ussLogin"/>
+					<Input id="inputPassword" type="Password" class="loginInput" placeholder="{i18n>password}"/>
+				</HBox>
+				<Button visible="false" id="loginButtonId" text="{i18n>entrar}" class="loginDesktopButton tlfncThemedButton" press="doLogin"/>
+				<Link visible="false" text="{i18n>forgetpass}" class="forgotLogin" press="forgotPass"/>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

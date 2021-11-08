@@ -1,0 +1,185 @@
+<mvc:View controllerName="epicfichajes.epicfichajes.controller.dashboard_pausas" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Shell id="shell" appWidthLimited="false">
+		<Page title="">
+			<customHeader>
+				<core:Fragment id="customHeader" fragmentName="epicfichajes.epicfichajes.view.header" type="XML"/>
+			</customHeader>
+			<content>
+				<VBox id="contentBox" class="contentBox">
+					<HBox class="title sapUiSmallMarginBottom">
+						<VBox class="titleLeft marginTileLeft">
+							<!--<Text class="titleLeftText sapThemeText" text="{i18n>lblSigning}"/>-->
+							<HBox alignItems="Center" visible="{/parameters/DAS-workdayShowTexts/visible}">
+								<core:Icon id="statusIcon" class="cBoxIcon sapUiTinyMarginEnd telefonicaBrandingColorIcon" src="{/controlVariables/workDayTxtIcon}"
+									visible="{/controlVariables/workDayTxtIconV}"/>
+								<Text id="statusText" class="titleLeftText sapThemeText" text="{/controlVariables/workDayDescription}"/>
+							</HBox>
+						</VBox>
+						<VBox class="titleRight marginTileRight" alignItems="End" alignContent="End">
+							<Link class="scheduleLnk sapThemeText" text="{i18n>lblSeeTimeSchedule}" press="onPressSchedule"
+								visible="{/parameters/DAS-scheduleVisibility/visible}" tooltip="{i18n>ttSchedule}"/>
+								<!--visible="{/parameters/DAS-plannedHoursShow/visible}" -->
+							<HBox visible="false">
+								<Text id="mySchedule" class="titleLeftSubText sapThemeText sapUiTinyMarginEnd" text="{i18n>lblTimeSchedule}"/>
+								<Text id="scheduleText" class="titleLeftSubText sapThemeText" text="{/controlVariables/currentDaySchedule}"/>
+							</HBox>
+							<HBox visible="{oModelReducedSchedule>/reducedworkingday}">
+								<Text id="reducedTime" class="titleLeftSubText sapThemeText"
+									text="{i18n>lblJornadaReducida} ({oModelReducedSchedule>/reducedpercentage}%)"/>
+							</HBox>
+							<!--<HBox>
+								<Text id="reducedSchedule" class="titleLeftSubText sapThemeText" tooltip="{i18n>lblHorasTrabajo}"
+									text="{i18n>lblMisHorasTeoricas}: {oModelReducedSchedule>/reducedSchedule}"/>
+							</HBox> -->
+						</VBox>
+					</HBox>
+					<HBox class="dashboard" justifyContent="SpaceAround" alignItems="End" wrap="Wrap">
+						<VBox class="dashboardLeft marginTileLeft sapUiSmallMarginBottom" justifyContent="Center">
+							<HBox>
+								<Button id="workDayBtn" class="workStateBtn telefonicaBrandingColorIcon" icon="{/controlVariables/workDayBtnIcon}" press="onPressWorkDay"/>
+								<!-- enabled="{/controlVariables/workingDay}"-->
+							</HBox>
+							<Text class="btnDescription sapThemeText sapUiMediumMarginTop telefonicaBrandingColorIcon" text="{/controlVariables/workDayBtnText}"
+								visible="{/parameters/DAS-workdayShowTexts/visible}"/>
+						</VBox>
+						<VBox class="dashboardMiddleLeft sapUiSmallMarginBottom" visible="{/parameters/DAS-stopwatchShowTimes/visible}">
+							<HBox width="100%">
+								<Text class="workDayDetail sapUiTinyMarginBottom sapUiTinyMarginEnd" text="{i18n>lblWorkDayDetail}"/>
+								<Text class="workDayDetail sapUiTinyMarginBottom" text="{/controlVariables/todayDate}"/>
+							</HBox>
+							<Text class="mainClockTitle sapThemeText sapUiSmallMarginBottom visibleTablet" text="{i18n>lblWorkTime}"
+								visible="{=${/parameters/DAS-stopwatchMode/value} === 'Stopwatch'}"/>
+							<HBox class="mainClock">
+								<VBox alignItems="Center">
+									<Text class="mainClockText sapThemeText" text="{/controlVariables/mainStopwatchHours}"/>
+									<Text class="mainClockSubText" text="{i18n>lblHours}"/>
+								</VBox>
+								<Text class="mainClockText sapThemeText" text=":"/>
+								<VBox alignItems="Center">
+									<Text class="mainClockText sapThemeText" text="{/controlVariables/mainStopwatchMinutes}"/>
+									<Text class="mainClockSubText" text="{i18n>lblMinutes}"/>
+								</VBox>
+								<Text class="mainClockText sapThemeText" text=":" visible="{/parameters/DAS-stopwatchShowSeconds/visible}"/>
+								<VBox alignItems="Center" visible="{/parameters/DAS-stopwatchShowSeconds/visible}">
+									<Text class="mainClockText sapThemeText" text="{/controlVariables/mainStopwatchSeconds}"/>
+									<Text class="mainClockSubText" text="{i18n>lblSeconds}"/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox class="dashboardMiddleRight sapUiTinyMarginBegin sapUiSmallMarginBottom" visible="{/parameters/DAS-stopwatchShowWorkDay/visible}">
+							<Text class="mainClockTitle sapThemeText sapUiSmallMarginBottom notVisibleTablet" text="{i18n>lblWorkTime}"/>
+							<HBox alignItems="End" wrap="Wrap">
+								<VBox class="dashEntryHour">
+									<Text class="mainClockEstLabel" text="{i18n>lblWorkDayStart}"/>
+									<Text class="mainClockEstimated sapThemeText" text="{/controlVariables/startTime}"/>
+								</VBox>
+								<VBox class="dashEntryHour">
+									<Text class="mainClockEstLabel" text="{i18n>lblWorkDayEnd}"/>
+									<Text class="mainClockEstimated sapThemeText" text="{/controlVariables/endTime}"/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox class="dashboardRight sapUiSmallMarginBottom"
+							visible="{=${/parameters/DAS-stopwatchShowTimes/visible} &amp;&amp; ${/parameters/DAS-stopwatchMode/value} === 'Stopwatch'}">
+							<Text class="secondaryClockTitle sapThemeText" text="{i18n>lblRestsTime}"/>
+							<HBox>
+								<Text class="secondaryClockText sapUiTinyMarginEnd" text="{/controlVariables/secondaryStopwatchHours}"/>
+								<Text class="secondaryClockText sapUiTinyMarginEnd" text=":"/>
+								<Text class="secondaryClockText sapUiTinyMarginEnd" text="{/controlVariables/secondaryStopwatchMinutes}"/>
+								<Text class="secondaryClockText sapUiTinyMarginEnd" text=":" visible="{/parameters/DAS-stopwatchShowSeconds/visible}"/>
+								<Text class="secondaryClockText" text="{/controlVariables/secondaryStopwatchSeconds}"
+									visible="{/parameters/DAS-stopwatchShowSeconds/visible}"/>
+							</HBox>
+						</VBox>
+						<!-- Imagen parametrizada para #TLFNCA -->
+						<VBox class="dashboardRight sapUiSmallMarginBottom">
+							<Image class="ScheduleImage" width="550px" id="imgBanner"
+								src="{'oModelReducedSchedule>/reducedpercentage',formatter: '.formatter.setBanneImage'}"
+								visible="true" press="onPressTerms"/>
+						</VBox> <!-- "/images/banner.jpg"  -->
+						<!-- Fin imagen parametrizada para TLFNCA -->
+						<!-- Texto desactivado para #TLFNCA -->
+						<VBox class="dashboardRight sapUiSmallMarginBottom" visible="false">
+							<!-- Fin texto desactivado para TLFNCA -->
+							<CheckBox id="acceptedGoodPractices" selected="{/controlVariables/goodPracticesAccepted}" text="{/customText/COMPANYPOLICY/value}"
+								wrapping="true" class="companyPolicyText" select="onChangeCheckBox"/>
+							<!--<CheckBox id="acceptedGoodPractices" selected="{/controlVariables/goodPracticesAccepted}" text="{i18n>msgCompanyPolicy}" wrapping="true" class="companyPolicyText" select="onChangeCheckBox"/>-->
+						</VBox>
+						<VBox visible="{=!${/parameters/GEN-companyShowSigning/visible}}" class="sapUiMediumMarginTop" height="2rem"/>
+					</HBox>
+					<!-- ParametrizaciÃ³n para #TLFNCA de visibilidad de los fichajes -->
+					<VBox class="info sapUiMediumMarginTop" visible="{/parameters/GEN-companyShowSigning/visible}">
+						<!-- Fin parametrizaciÃ³n para TLFNCA de visibilidad de los fichajes -->
+						<HBox id="infoUp" class="infoUp" alignItems="Center" justifyContent="SpaceBetween" wrap="Wrap">
+							<HBox class="infoUpLeft marginTileLeft">
+								<Text class="workDayDetail" text="{i18n>lblYourWorkDays}"/>
+							</HBox>
+							<HBox class="infoUpRight marginTileRight marginTileLeft" alignItems="Center">
+								<DateRangeSelection id="datePicker" class="datePicker sapUiSmallMarginEnd telefonicaBrandingColorIcon" placeholder="{i18n>plhDatePicker}"
+									change="onDateRangeChange" displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" tooltip="{i18n>ttSelectDateRange}"/>
+								<core:Icon src="sap-icon://excel-attachment" class="telefonicaBrandingColorIcon" press="downloadCSV" tooltip="{i18n>lblDescargaCSV}"/>
+								<core:Icon src="sap-icon://sort" press="onPressSortDate" tooltip="{i18n>ttSortDate}" class="telefonicaBrandingColorIcon"/>
+							</HBox>
+						</HBox>
+						<HBox class="infoDown" id="tableHBox">
+							<ScrollContainer vertical="true">
+								<Table id="workDaysInfoTable" class="workDaysInfoTable" items="{/}" mode="SingleSelect">
+									<columns>
+										<Column visible="{/parameters/DAS-tableVisibleDate/visible}">
+											<Text class="columnHeader firstColumn" text="{i18n>lblDate}"/>
+										</Column>
+										<Column minScreenWidth="Large" demandPopin="true" popinDisplay="Inline" visible="{/parameters/DAS-tableVisibleEndDate/visible}">
+											<Text class="columnHeader firstColumn" text="{i18n>lblEndDate}"/>
+										</Column>
+										<Column minScreenWidth="Large" demandPopin="true" popinDisplay="Inline" visible="{/parameters/DAS-tableVisibleEntryHour/visible}">
+											<Text class="columnHeader lastColumn" text="{i18n>lblEntry}"/>
+										</Column>
+										<Column minScreenWidth="Large" demandPopin="true" popinDisplay="Inline" visible="{/parameters/DAS-tableVisibleExitHour/visible}">
+											<Text class="columnHeader lastColumn" text="{i18n>lblExit}"/>
+										</Column>
+										<Column visible="{/parameters/GEN-tableVisibleWorkTime/visible}">
+											<Text class="columnHeader lastColumn" text="{i18n>lblWorkTime}"/>
+										</Column>
+										<Column minScreenWidth="Large" demandPopin="true" popinDisplay="Inline">
+											<Text class="columnHeader lastColumn" text="{i18n>lblNotAuthHours}"/>
+										</Column>
+										<Column minScreenWidth="Large" demandPopin="true" popinDisplay="Inline">
+											<Text class="columnHeader lastColumn" text="{i18n>lblRequestStateLong}"/>
+										</Column>
+										<Column minScreenWidth="Large" demandPopin="true" popinDisplay="Inline"
+											visible="{=${/parameters/DAS-tableVisibleRestTime/visible}}">
+											<Text class="columnHeader lastColumn" text="{i18n>lblRests}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem press="onPressEditWorkDay" class="columnListItems">
+											<cells>
+												<Text class="columnItem firstColumn" text="{recordinitdate}"/>
+												<Text class="columnItem firstColumn" text="{recordenddate}"/>
+												<HBox class="columnItem lastColumn reverseOrderOnMobile" justifyContent="End">
+													<Text text="{inittimestring}" class="vertAlMiddle"/>
+													<core:Icon class="customEditIcon sapUiTinyMarginEnd" src="{/parameters/DAS-iconEdit/value}" visible="{=${editinittime} === 'X'}"/>
+												</HBox>
+												<HBox class="columnItem lastColumn reverseOrderOnMobile" justifyContent="End">
+													<Text text="{endtimestring}" class="vertAlMiddle"/>
+													<core:Icon class="customEditIcon sapUiTinyMarginEnd" src="{/parameters/DAS-iconEdit/value}" visible="{=${editendtime} === 'X'}"/>
+												</HBox>
+												<Text class="columnItem lastColumn" text="{totalworkingtime}"/>
+												<Text class="columnItem lastColumn" text="{totalexcesstimetxt}"/>
+												<Text class="columnItem lastColumn" text="{approvalstatustxt}"/>
+												<HBox class="columnItem lastColumn reverseOrderOnMobile" justifyContent="End">
+													<Text text="{totalrestingtime}" class="vertAlMiddle"/>
+													<core:Icon class="customEditIcon sapUiTinyMarginEnd" src="{/parameters/DAS-iconEdit/value}" visible="{=${editrestingtime} === 'X'}"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</ScrollContainer>
+						</HBox>
+					</VBox>
+				</VBox>
+			</content>
+		</Page>
+	</Shell>
+</mvc:View>

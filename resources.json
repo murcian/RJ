@@ -1,0 +1,182 @@
+{
+    "resources": [
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/dashboard-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/dashboard.controller.js"
+        },
+        {
+            "name": "controller/edit-registry-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/edit-registry.controller.js"
+        },
+        {
+            "name": "controller/login-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/login.controller.js"
+        },
+        {
+            "name": "controller/schedule-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/schedule.controller.js"
+        },
+        {
+            "name": "css/style-dbg.css",
+            "isDebug": true
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_en"
+        },
+        {
+            "name": "i18n/i18n_es.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_es"
+        },
+        {
+            "name": "i18n/i18n_pt.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_pt"
+        },
+        {
+            "name": "images/Logologin.png"
+        },
+        {
+            "name": "images/Logologin2x.png"
+        },
+        {
+            "name": "images/Usuario.png"
+        },
+        {
+            "name": "images/Usuario@2x.png"
+        },
+        {
+            "name": "images/contrasena.png"
+        },
+        {
+            "name": "images/contrasena@2x.png"
+        },
+        {
+            "name": "images/epicLogo.png"
+        },
+        {
+            "name": "images/epicLogo_transparent.png"
+        },
+        {
+            "name": "images/logoEveris.jpg"
+        },
+        {
+            "name": "images/mostrar.png"
+        },
+        {
+            "name": "images/mostrar@2x.png"
+        },
+        {
+            "name": "images/sapCompanyLogo.png"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/dashboard.json"
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/schedule.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "sap-ui-cachebuster-info.json"
+        },
+        {
+            "name": "utils/constants-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/constants.js"
+        },
+        {
+            "name": "utils/cookies-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/cookies.js"
+        },
+        {
+            "name": "utils/dbutils-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/dbutils.js"
+        },
+        {
+            "name": "utils/utils-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/utils.js"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/dashboard.view.xml"
+        },
+        {
+            "name": "view/edit-registry.view.xml"
+        },
+        {
+            "name": "view/header.fragment.xml"
+        },
+        {
+            "name": "view/login.view.xml"
+        },
+        {
+            "name": "view/schedule.view.xml"
+        }
+    ]
+}

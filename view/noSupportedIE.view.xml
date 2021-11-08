@@ -1,0 +1,8 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+			<Text class="noSupportedIEText" text="Para el correcto uso de la aplicación, se recomienda el acceso desde los siguientes navegadores: Firefox, Edge, Microsoft Edge, Microsoft Chromium" />
+		</content>
+	</Page>
+</mvc:View>

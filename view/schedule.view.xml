@@ -1,0 +1,240 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:u="sap.ui.unified"
+	controllerName="epicfichajes.epicfichajes.controller.schedule" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<customHeader>
+					<core:Fragment id="customHeader" fragmentName="epicfichajes.epicfichajes.view.header" type="XML"/>
+				</customHeader>
+				<content>
+					<VBox id="contentBox" class="contentBox marginTileLeft marginTileRight">
+						<HBox class="title sapUiSmallMarginBottom">
+							<VBox class="titleLeft marginTileLeft">
+								<Text class="titleLeftText sapThemeText" text="{i18n>lblTimeSchedule}"/>
+								<Text id="statusText" class="titleLeftSubText sapThemeText" text="{i18n>lblConsultTimeSchedule}"/>
+								<HBox class="sapUiTinyMarginTop" alignItems="Baseline" wrap="Wrap">
+									<Text class="subtext bold sapUiTinyMarginEnd" text="{i18n>lblThisWeek}"/>
+									<Text class="subtext sapUiTinyMarginEnd" text="{/dateInterval}"/>
+									<HBox>
+										<Text class="subtext bold sapUiTinyMarginEnd" text="{/weeklyEstimate}"/>
+										<Text class="subtext bold" text="{i18n>lblEstimatedHours}"/>
+									</HBox>
+								</HBox>
+							</VBox>
+							<VBox class="titleRight marginTileRight" alignItems="End" alignContent="End" visible="{=${/reducedWorkingDay} === 1 }">
+								<Text class="titleLeftSubText sapThemeText" text="{/reducedPercentage}"/>
+							</VBox>
+						</HBox>
+						<HBox class="scheduleWeekDays sapUiTinyMarginTop marginTileLeft marginTileRight sapUiSmallMarginBottom">
+							<Table id="scheduleWeekDaysTable" class="scheduleWeekDaysTable" items="{/weeks}">
+								<columns>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day0}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day1}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day2}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day3}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day4}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day5}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderWeekDaysTableText sapThemeText" text="{/days/day6}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<VBox id="scheduleColumnItemWeekDaysTableL" class="scheduleColumnItem" alignItems="Center" justifyContent="Center">
+												<Text class="scheduleDay" text="{dayL}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryL}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDayTextL}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitL}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateL}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemWeekDaysTableM" class="scheduleColumnItem" alignItems="Center">
+												<Text class="scheduleDay" text="{dayM}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryM}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDayTextM}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitM}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateM}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemWeekDaysTableX" class="scheduleColumnItem" alignItems="Center">
+												<Text class="scheduleDay" text="{dayX}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryX}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDayTextX}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitX}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateX}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemWeekDaysTableJ" class="scheduleColumnItem" alignItems="Center">
+												<Text class="scheduleDay" text="{dayJ}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryJ}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDayTextJ}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitJ}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateJ}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemWeekDaysTableV" class="scheduleColumnItem" alignItems="Center">
+												<Text class="scheduleDay" text="{dayV}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryV}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDayTextV}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitV}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateV}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemWeekDaysTableS" class="scheduleColumnItem" alignItems="Center">
+												<Text class="scheduleDay" text="{dayS}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryS}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDay}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitS}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateS}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemWeekDaysTableD" class="scheduleColumnItem" alignItems="Center">
+												<Text class="scheduleDay" text="{dayD}"/>
+												<HBox wrap="Wrap" justifyContent="Center" class="nonDesktopStyleText">
+													<Text class="scheduleEstimatedUpper" text="{hourEntryD}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginBegin sapUiTinyMarginEnd visibleOnlyOn1028px" text="{workDayTextD}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitD}"/>
+												</HBox>
+												<Text class="scheduleEstimated" text="{hourEstimateD}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</HBox>
+						<HBox class="title sapUiTinyMarginTop marginTileLeft" alignItems="Baseline" wrap="Wrap">
+							<Text class="subtext bold sapUiTinyMarginEnd" text="{i18n>lblThisMonth}"/>
+							<Text class="subtext sapUiTinyMarginEnd" text="{/currentMonth}"/>
+							<HBox>
+								<Text class="subtext bold sapUiTinyMarginEnd" text="{/monthlyEstimate}"/>
+								<Text class="subtext bold" text="{i18n>lblEstimatedHours}"/>
+							</HBox>
+						</HBox>
+						<HBox class="scheduleMonthDays sapUiTinyMarginTop marginTileLeft marginTileRight sapUiSmallMarginBottom">
+							<Table id="scheduleMonthDaysTable" class="scheduleMonthDaysTable" items="{/weeks}">
+								<headerToolbar justifyContent="Center">
+									<Toolbar>
+										<Button id="backMonth" class="scheduleButton" icon="sap-icon://slim-arrow-left" press="onPressMonthNav" type="Transparent"/>
+										<Text class="scheduleText" id="scheduleMonth" text="{/weeks/week1/currentMonth}"/>
+										<Button id="frwdMonth" class="scheduleButton" icon="sap-icon://slim-arrow-right" press="onPressMonthNav" type="Transparent"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day0}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day1}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day2}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day3}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day4}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day5}"/>
+									</Column>
+									<Column class="scheduleColumnHeader">
+										<Text class="scheduleColumnHeaderMonthDaysTableText sapThemeText" text="{/days/day6}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<VBox id="scheduleColumnItemMonthDaysTableL" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayL}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryL}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDayTextL}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitL}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateL}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemMonthDaysTableM" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayM}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryM}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDayTextM}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitM}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateM}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemMonthDaysTableX" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayX}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryX}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDayTextX}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitX}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateX}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemMonthDaysTableJ" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayJ}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryJ}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDayTextJ}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitJ}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateJ}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemMonthDaysTableV" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayV}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryV}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDayTextV}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitV}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateV}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemMonthDaysTableS" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayS}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryS}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDay}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitS}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateS}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+											<VBox id="scheduleColumnItemMonthDaysTableD" class="scheduleColumnItem" alignItems="Center">
+												<Link class="scheduleDay" text="{dayD}" press="onPressCell" enabled="{/parameters/GEN-detailVisibility/visible}"/>
+												<HBox class="visibleOnlyOn1028px">
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{hourEntryD}"/>
+													<Text class="scheduleEstimatedUpper sapUiTinyMarginEnd" text="{workDayTextD}"/>
+													<Text class="scheduleEstimatedUpper" text="{hourExitD}"/>
+												</HBox>
+												<Text class="scheduleEstimated visibleOnlyOn1028px" text="{hourEstimateD}" visible="{/parameters/SCH-plannedHoursShow/visible}"/>
+											</VBox>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,114 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="epicfichajes.epicfichajes.controller.edit-registry-pause" 
+	displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page title="">
+					<customHeader>
+						<core:Fragment id="customHeader" fragmentName="epicfichajes.epicfichajes.view.header" type="XML"/>
+					</customHeader>
+					<content>
+						<VBox id="contentBox" class="contentBox">
+							<HBox class="title sapUiSmallMarginBottom">
+								<VBox class="titleLeft marginTileLeft">
+									<Text class="titleLeftText sapThemeText" text="{path: '/recordinitdate', formatter: '.formatter.formatDate'}"/>
+									<Text id="statusText" class="titleLeftSubText sapThemeText" text="{/editReg}"/>
+								</VBox>
+							</HBox>
+							<VBox class="sapUiTinyMarginTop marginTileLeft marginTileRight" wrap="Wrap" justifyContent="SpaceBetween">
+								<HBox class="formEdit sapUiTinyMarginTop" wrap="Wrap" justifyContent="SpaceBetween">
+									<VBox class="formEditEntryHour">
+										<Label text="{i18n>lblEntryTime}"/>
+										<TimePicker id="entryHourPicker" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" change="onAfterHourChange"
+											enabled="{=(${/approvalstatus} === 1 || !${/approvalstatus}) &amp;&amp; ${/editable} }" value="{/inittimestring}"
+											placeholder="{i18n>plhTimePicker}" tooltip="{i18n>ttEntryHour}" app:action="Entry"/>
+									</VBox>
+									<VBox class="formEditExitHour">
+										<Label text="{i18n>lblExitTime}"/>
+										<TimePicker id="exitHourPicker" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" change="onAfterHourChange"
+											enabled="{=${/editable} &amp;&amp; ${/editingToday} === false &amp;&amp; (${/approvalstatus} === 1 || !${/approvalstatus}) }"
+											value="{/endtimestring}" placeholder="{i18n>plhTimePicker}" tooltip="{i18n>ttExitHour}" app:action="Exit"/>
+									</VBox>
+									<VBox class="formEditRestTime" tooltip="{i18n>lblPausaInfoComida}">
+										<Label text="{i18n>lblRestsMinutes}"/>
+										<TimePicker id="restInput" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" enabled="false"
+													value="{path: '/totalrestingtime', formatter: '.formatter.minutesToTimePickerStringFormat'}"/>
+									</VBox>
+									<VBox class="formEditWorkTime">
+										<Label text="{i18n>lblWorkTimeCalc}" visible="{/parameters/GEN-tableVisibleWorkTime/visible}"/>
+										<TimePicker id="workInput" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" enabled="false"
+													value="{path: '/totalworkingtime', formatter: '.formatter.minutesToTimePickerStringFormat'}"/>
+									</VBox>
+									<VBox class="formEditInitPauseHour">
+										<Label text="Inicio de Pausa"/>
+										<TimePicker id="initBreakPicker" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" change="onAfterHourChange"
+											enabled="{=(${/approvalstatus} === 1 || !${/approvalstatus}) &amp;&amp; ${/editable} }" value="{/initpausetimestring}"
+											placeholder="{i18n>plhTimePicker}" tooltip="{i18n>ttEntryHour}" app:action="EntryBreak"/>
+									</VBox>
+									<VBox class="formEditEndPauseHour">
+										<Label text="Fin de Pausa"/>
+										<TimePicker id="endBreakPicker" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" change="onAfterHourChange"
+											enabled="{=(${/approvalstatus} === 1 || !${/approvalstatus}) &amp;&amp; ${/editable} }" value="{/endpausetimestring}"
+											placeholder="{i18n>plhTimePicker}" tooltip="{i18n>ttEntryHour}" app:action="ExitBreak"/>
+									</VBox>
+									<VBox class="formEditWorkTime">
+										<Label text="{i18n>lblExeedHours}"/>
+										<TimePicker id="totalexcesstime" class="timePicker" valueFormat="HH:mm" displayFormat="HH:mm" change="onAfterHourChange"
+											enabled="{=(${/approvalstatus} === 1 || !${/approvalstatus}) &amp;&amp; ${/editable} }" 
+											value="{path: '/totalexcesstime', formatter: '.formatter.secondsToTimePickerStringFormat'}"/>
+									</VBox>
+									<VBox class="formEditWorkTime">
+										<Label text="{i18n>lblRequestStateLong}"/>
+										<Input id="approvalstatus" class="inputEdit" enabled="false" value="{/approvalstatustxt}"/>
+									</VBox>
+									<items/>
+								</HBox>
+							</VBox>
+							<HBox class="title sapUiSmallMarginTop sapUiMediumMarginBottom">
+								<VBox class="detailTableContainer marginTileLeft marginTileRight">
+									<Text class="workDayDetail sapUiSmallMarginBottom" text="{i18n>lblWorkDayDetail}"/>
+									<ScrollContainer height="20rem" vertical="true">
+										<Table id="detailTable" class="detailTable" items="{/}">
+											<columns>
+												<Column>
+													<Text class="columnHeader firstColumn" text="{i18n>lblStatus}"/>
+												</Column>
+												<Column>
+													<Text class="columnHeader middleColumn" text="{i18n>lblHour}"/>
+												</Column>
+												<Column>
+													<Text class="columnHeader lastColumn" text="{i18n>lblRegistryType}"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem>
+													<cells>
+														<Text class="columnItem firstColumn" text="{idstatusdetail}"/>
+														<Text class="columnItem middleColumn" text="{path: 'recorddatetime', formatter: '.formatter.formatStringDate'}"/>
+														<Text class="columnItem lastColumn" text="{idregtype}"/>
+														<HBox alignItems="Center">
+															<core:Icon class="columnIcon" src="{regIcon}"/>
+															<Text class="columnItem lastColumn" text="{restdetail}"/>
+														</HBox>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</ScrollContainer>
+								</VBox>
+							</HBox>
+							<HBox class="footer" justifyContent="End" visible="{=(${/approvalstatus} === 1 || !${/approvalstatus}) &amp;&amp; ${/editable} }">
+								<Button class="footerButton secondaryBtn sapUiSmallMarginEnd tlfncThemedButton" text="{i18n>actDiscardChanges}" press="onPressBack"
+									type="Transparent"/>
+								<Button id="saveBtn" class="footerButton primaryBtn sapUiSmallMarginEnd tlfncThemedButton" text="{i18n>actSaveChanges}"
+									press="onPressConfirmBreak" type="Transparent" enabled="{/correctData}"/>
+							</HBox>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

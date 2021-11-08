@@ -1,0 +1,199 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "epicfichajes.epicfichajesdev",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "epicfichajes.epicfichajes.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ui.unified": {
+					"minVersion": ""
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "epicfichajes.epicfichajes.i18n.i18n"
+				}
+			},
+			"editRegistry": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"companyParameters": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "utils/utils.js"
+				},
+				{
+					"uri": "utils/dbutils.js"
+				},
+				{
+					"uri": "utils/constants.js"
+				},
+				{
+					"uri": "utils/cookies.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "epicfichajes.epicfichajes.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"name": "home",
+					"pattern": "home",
+					"target": "home"
+				},
+				{
+					"name": "edit-registry",
+					"pattern": "edit-registry",
+					"target": "edit-registry"
+				},
+				{
+					"name": "schedule",
+					"pattern": "schedule",
+					"target": "schedule"
+				},
+				{
+					"name": "home_pausas",
+					"pattern": "home_pausas",
+					"target": "home_pausas"
+				},
+				{
+					"name": "noSupportedIE",
+					"pattern": "noSupportedIE",
+					"target": "noSupportedIE"
+				},
+				{
+					"name": "edit-registry-pause",
+					"pattern": "edit-registry-pause",
+					"target": "edit-registry-pause"
+				}
+			],
+			"targets": {
+				"login": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "login",
+					"viewName": "login"
+				},
+				"home": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "dashboard",
+					"viewName": "dashboard"
+				},
+				"home_pausas": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "dashboard_pausas",
+					"viewName": "dashboard_pausas"
+				},
+				"edit-registry": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "edit-registry",
+					"viewName": "edit-registry"
+				},
+				"schedule": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "schedule",
+					"viewName": "schedule"
+				},
+				"noSupportedIE": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "noSupportedIE",
+					"viewName": "noSupportedIE"
+				},
+				"edit-registry-pause": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "edit-registry-pause",
+					"viewName": "edit-registry-pause"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "",
+		"_version": "1.1.0"
+	}
+}

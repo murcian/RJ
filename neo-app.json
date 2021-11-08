@@ -1,0 +1,64 @@
+{
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.65.1"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi"
+      }
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.65.1"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/themedesigner",
+      "target": {
+        "type": "application",
+        "name": "themedesigner"
+      },
+      "description": "Route for theme designer"
+    },
+    {
+      "path": "/epictheme",
+      "target": {
+        "type": "application",
+        "name": "epictheme"
+      },
+      "description": "Route for theme"
+    },
+    {
+      "path": "/destinations/TLFNC_PICKING",
+      "target": {
+        "type": "destination",
+        "name": "TLFNC_PICKING"
+      }
+    },
+    {
+      "path": "/destinations/TLFNC_PROCESSES",
+      "target": {
+        "type": "destination",
+        "name": "TLFNC_PROCESSES"
+      }
+    }
+  ],
+  "authenticationMethod": "saml",
+  "sendWelcomeFileRedirect": true
+}
